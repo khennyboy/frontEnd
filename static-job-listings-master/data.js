@@ -1,4 +1,4 @@
-[
+const datas =[
   {
     "id": 1,
     "company": "Photosnap",
