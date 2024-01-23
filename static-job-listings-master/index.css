@@ -10,8 +10,8 @@ body{
     background-color: hsl(180, 52%, 96%);
 }
 header{
-    background: url('/images/bg-header-desktop.svg');
-    padding: 4rem 0;
+    background: url('./../images/bg-header-desktop.svg');
+    padding: 2rem 0;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -32,9 +32,20 @@ header{
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.each_role.hide{
+    display: none;
 }
 
 .each_role:hover{
     border-left: 4px solid hsl(180, 29%, 50%);
     border-radius: 10px;
+}
+.search{
+    padding: 10px;
+    border: none;
+    display: block;
 }
