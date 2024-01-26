@@ -25,7 +25,7 @@ for(var i=0;  i < datas.length; i++){
 </div>
 </div>
 <div class="right">
-<span class="language first" data-language="${m.role.toLowerCase()}">${m.role}</span>
+<span class="language" data-language="${m.role.toLowerCase()}">${m.role}</span>
 <span class="language" data-language="${m.level.toLowerCase()}">${m.level}</span>
 </div>
 </div>`
@@ -52,88 +52,64 @@ m.tools.forEach(each=>{
 
 let all_roles = document.querySelectorAll('.language')
 let child = document.querySelectorAll('.each_role')
-let rights = document.querySelectorAll('.right')
 let all_search = []
-
 
 all_roles.forEach(each=> all_search.push((each.dataset['language'])))
 all_search = [... new Set(all_search)]
 console.log(all_search)
 
+// keyup event listener start here
 searchContainer.addEventListener('keyup', function(e){
   let searchContainerValue;
   e.target.value = e.target.value.toLowerCase()
   
   if(e.target.value!=''){
-  // child.forEach(each=>each.style.display='none')
+  child.forEach(each=>each.style.display='none')
   searchContainerValue = searchContainer.value.split(' ').filter(each=>{
      if(each!=''){
       return each;
     }
   });
-  console.log(searchContainerValue)
-
-  //function to check if all input exist in a div with class right as children
-
-  //   for(const each_search of all_search){
-  //      for(const each_input of searchContainerValue){
-  //           if(each_word(each_input, each_search)){
-  //             console.log('win')
-  //           }
-  // }
-  // }
-
-
-handleChildrenWithClasses(all_search, searchContainerValue)
-
-// rights.forEach((each_tag)=>{
-//   if(handleChildrenWithClasses(each_tag, all_search)){
-//     each.closest('.each_role').style.display = 'block'
-//   }
-// })
-
-// for (const right of rights){
-//     if(handleChildrenWithClasses(right, all_search)){
-//         right.closest('.each_role').style.display= 'block'
-//     }
-//     else{
-//       console.error('no result for this search')
-//     }
-// }
-  }
+  handleChildrenWithClasses(all_search, searchContainerValue)
+}
 // else statement if the user has not entered any input
   else{
     child.forEach(each=>each.style.display='block')
   }
 // keyUp functions ends here
 })
+
 function handleChildrenWithClasses(all_search, searchContainerValue){
+  var store = []
   for(const each_input of searchContainerValue){
     for(const each_search of all_search){
-      each_word(each_input, each_search)
-    }
+      let pos = each_search.indexOf(each_input)
+     if(pos!=-1){
+      // if(each_input==each_search){
+      //    store.push(each_search)
+      //    console.log(store)
+      // }
+     
+     let rights = document.querySelectorAll('.right')
+     for(each of rights){
+      // if(store.length!=0){
+
+      // }
+        if(each.querySelector(`.language[data-language=${each_search}]`)){
+          each.closest('.each_role').style.display='block'
+        }
+     }
+     }
   }
 }
-
-function each_word(each_input, each_search){
-  var store = []
-  for (const i of each_input){
-  let pos = each_search.indexOf(i)
-  pos!=-1 && store.push(pos)
-  console.log(store)
-  if(store.length!=0){
-  let verify = store.every((_, index, array) => index === 0 || array[index] - array[index - 1] === 1);
-  console.log(verify)
-  if(verify){
-    console.log(document.querySelector(`.language[data-language="${each_search}"]`))
-    store =[]
-  }
- 
-  }
-  }
 }
 
 });
 
 
+  //  x.forEach(each=>{
+    //   each.closest('.each_role').style.display='block'
+    //  })
+
+        //  var x =  document.querySelectorAll(`.language[data-language=${each_search}]`)
 
