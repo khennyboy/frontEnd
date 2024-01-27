@@ -63,6 +63,7 @@ searchContainer.addEventListener('keyup', function(e){
   let searchContainerValue;
   e.target.value = e.target.value.toLowerCase()
   
+  if(e.target.value!=''){
   child.forEach(each=>each.style.display='none')
   searchContainerValue = searchContainer.value.split(' ').filter(each=>{
      if(each!=''){
@@ -70,7 +71,10 @@ searchContainer.addEventListener('keyup', function(e){
     }
   });
   handleChildrenWithClasses(all_search, searchContainerValue)
-
+}
+  else{
+    child.forEach(each=>each.style.display='block')
+  }
 // keyUp functions ends here
 })
 
@@ -87,6 +91,7 @@ function handleChildrenWithClasses(all_search, searchContainerValue){
      let rights = document.querySelectorAll('.right')
      for(each of rights){
         if(each.querySelector(`.language[data-language=${each_search}]`)){
+          each.closest('.each_role').style.display='none'
           if(store.length!=0 ){
             store.forEach(each_tag=>{
                if(each.querySelector(`.language[data-language=${each_tag}]`)){
@@ -102,9 +107,6 @@ function handleChildrenWithClasses(all_search, searchContainerValue){
            if(store.length==0){
             each.closest('.each_role').style.display='block'
           }
-        }
-        else{
-          each.closest('.each_role').style.display='none'
         }
      }
      }
