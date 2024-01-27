@@ -84,30 +84,31 @@ function handleChildrenWithClasses(all_search, searchContainerValue){
   for(const each_input of searchContainerValue){
     for(const each_search of all_search){
       let pos = each_search.indexOf(each_input)
-     if(pos!=-1){
       if(each_input==each_search){
          store.push(each_search)
          console.log(store)
       }
-     
+     if(pos!=-1){
      let rights = document.querySelectorAll('.right')
      for(each of rights){
         if(each.querySelector(`.language[data-language=${each_search}]`)){
-          // each.closest('.each_role').style.display='block'
+          each.closest('.each_role').style.display='none'
           //check if the latest result also  has the previous search input
           if(store.length!=0 ){
-            var x = store.every(previous=>{
-            each.querySelector(`.language[data-language=${previous}`)
+            store.forEach(each_tag=>{
+               if(each.querySelector(`.language[data-language=${each_tag}]`)){
+                  each.closest('.each_role').style.display='block'
+                  console.log('inner each')
+                  console.log(each)
+               }
+               else{
+                each.closest('.each_role').style.display='none'
+               }
             })
-            console.log(x)
           }
-          else if(store.length==0){
+           if(store.length==0){
             each.closest('.each_role').style.display='block'
           }
-          if(x){
-            each.closest('.each_role').style.display='block'
-          }
-          
         }
      }
      }
