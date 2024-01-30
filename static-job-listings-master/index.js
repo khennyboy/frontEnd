@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', function(){
 
 let parent = document.querySelector('.wrapper')
 let searchContainer = document.querySelector('.search')
-let searchContainerValue;
+
 
 for(var i=0;  i < datas.length; i++){
     let m = datas[i], x;
@@ -50,28 +50,23 @@ m.tools.forEach(each=>{
 
 }
 
-let all_roles = document.querySelectorAll('.language')
-let child = document.querySelectorAll('.each_role')
-let all_search = []
 
-all_roles.forEach(each=> all_search.push((each.dataset['language'])))
-all_search = [... new Set(all_search)]
-console.log(all_search)
+let child = document.querySelectorAll('.each_role')
 
 // keyup event listener start here
 searchContainer.addEventListener('keyup', function(e){
   e.target.value = e.target.value.toLowerCase()
-  
+  let searchContainerValue;
+
   if(e.target.value!=''){
   child.forEach(each=>each.style.display='none')
   searchContainerValue = searchContainer.value.split(' ').filter(each=>{
      if(each!=''){
       return each;
     }
-    console.log(searchContainerValue)
   });
   
-  handleChildrenWithClasses(all_search, searchContainerValue)
+  handleChildrenWithClasses(searchContainerValue)
 }
   else{
     child.forEach(each=>each.style.display='block')
@@ -79,7 +74,7 @@ searchContainer.addEventListener('keyup', function(e){
 // keyUp functions ends here
 })
 
-function handleChildrenWithClasses(all_search, searchContainerValue){
+function handleChildrenWithClasses(searchContainerValue){
      let rights = document.querySelectorAll('.right')
      for(each_right of rights){
       let children = each_right.children
