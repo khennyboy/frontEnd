@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', function(){
 
 let parent = document.querySelector('.wrapper')
 let searchContainer = document.querySelector('.search')
-
+let searchContainerValue;
 
 for(var i=0;  i < datas.length; i++){
     let m = datas[i], x;
@@ -60,7 +60,6 @@ console.log(all_search)
 
 // keyup event listener start here
 searchContainer.addEventListener('keyup', function(e){
-  let searchContainerValue;
   e.target.value = e.target.value.toLowerCase()
   
   if(e.target.value!=''){
@@ -69,7 +68,9 @@ searchContainer.addEventListener('keyup', function(e){
      if(each!=''){
       return each;
     }
+    console.log(searchContainerValue)
   });
+  
   handleChildrenWithClasses(all_search, searchContainerValue)
 }
   else{
@@ -79,42 +80,26 @@ searchContainer.addEventListener('keyup', function(e){
 })
 
 function handleChildrenWithClasses(all_search, searchContainerValue){
-  var store = []
-  for(const each_input of searchContainerValue){
-    for(const each_search of all_search){
-      let pos = each_search.indexOf(each_input)
-      if(each_input==each_search){
-         store.push(each_search)
-         console.log(store)
-      }
-     if(pos!=-1){
      let rights = document.querySelectorAll('.right')
-     for(each of rights){
-        if(each.querySelector(`.language[data-language=${each_search}]`)){
-          each.closest('.each_role').style.display='none'
-          if(store.length!=0 ){
-            store.forEach(each_tag=>{
-               if(each.querySelector(`.language[data-language=${each_tag}]`)){
-                  each.closest('.each_role').style.display='block'
-                  console.log('inner each')
-                  console.log(each)
-               }
-               else{
-                each.closest('.each_role').style.display='none'
-               }
-            })
-          }
-           if(store.length==0){
-            each.closest('.each_role').style.display='block'
-          }
-        }
+     for(each_right of rights){
+      let children = each_right.children
+      let confirm =[];
+      for(var j =0; j<children.length; j++){
+        confirm.push(children[j].getAttribute('data-language'))
      }
-     }
-  }
+const allIndexesExist = searchContainerValue.every(item =>
+  confirm.some(subItem => subItem.indexOf(item) !== -1)
+);
+
+if (allIndexesExist) {
+  each_right.closest('.each_role').style.display='block'
+} else {
+  each_right.closest('.each_role').style.display='none'
 }
-// end of the handleChildrenWithClasses function here
+  }
 }
 
 });
+
 
 
