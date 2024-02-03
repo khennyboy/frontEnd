@@ -11,9 +11,9 @@ for(var i=0;  i < datas.length; i++){
 <div class="company-logo">
   <img src='${m.logo}' alt='${m.company}_logo' >
 </div>
+<div class='left_left'>
 <div class="info_1">
    <span class="company">${m.company}</span>
-
 </div>
 <div class="info_2" >
   <h3 class="position">${m.position}</h3>
@@ -22,6 +22,7 @@ for(var i=0;  i < datas.length; i++){
   <span class="postedAt">${m.postedAt}</span>
   <span class="contract">${m.contract}</span>
   <span class="location">${m.location}</span>
+</div>
 </div>
 </div>
 <div class="right">
@@ -54,7 +55,7 @@ m.tools.forEach(each=>{
 let child = document.querySelectorAll('.each_role')
 
 // keyup event listener start here
-searchContainer.addEventListener('keyup', function(e){
+searchContainer.addEventListener('input', function(e){
   e.target.value = e.target.value.toLowerCase()
   let searchContainerValue;
 
@@ -69,32 +70,60 @@ searchContainer.addEventListener('keyup', function(e){
   handleChildrenWithClasses(searchContainerValue)
 }
   else{
-    child.forEach(each=>each.style.display='block')
+    child.forEach(each=>each.style.display='flex')
+    // var allHighlight = document.querySelectorAll(`.language[data-language]`)
+    // allHighlight.forEach(each=>{
+    //   let m = each.dataset.language
+    //   each.innerHTML = m[0].toUpperCase()+ m.slice(1)
+    // })
   }
 // keyUp functions ends here
 })
 
 function handleChildrenWithClasses(searchContainerValue){
      let rights = document.querySelectorAll('.right')
-     for(each_right of rights){
-      let children = each_right.children
+     for(var i =0; i<rights.length; i++){
+      let children = rights[i].children
       let confirm =[];
       for(var j =0; j<children.length; j++){
         confirm.push(children[j].getAttribute('data-language'))
      }
-const allIndexesExist = searchContainerValue.every(item =>
-  confirm.some(subItem => subItem.indexOf(item) !== -1)
-);
+
+const allIndexesExist = searchContainerValue.every((item)=>{
+  return (
+   confirm.some((subItem)=>{
+    if(subItem.indexOf(item)!==-1){
+      var allHighlight = document.querySelector(`#each_role${i+1} .right .language[data-language=${subItem}]`)
+        var index = subItem.indexOf(item)
+        var originalText = subItem[0].toUpperCase()+subItem.slice(1) ;
+        const highlightedText = `${originalText.substring(0, index)}<span class="highlight">${originalText.substr(index, item.length)}</span>${originalText.substring(index + item.length)}`;
+        allHighlight.innerHTML = highlightedText;
+      // var highlight =  document.querySelectorAll(`.language[data-language=${subItem}]`)
+      // highlight.forEach(each=>{
+      //   var index = subItem.indexOf(item)
+      //   var originalText = subItem[0].toUpperCase()+subItem.slice(1) ;
+      //   const highlightedText = `${originalText.substring(0, index)}<span class="highlight">${originalText.substr(index, item.length)}</span>${originalText.substring(index + item.length)}`;
+      //   each.innerHTML = highlightedText;
+      // })
+    }
+ 
+    return (subItem.indexOf(item) !==-1)
+  })
+  )
+})
 
 if (allIndexesExist) {
-  each_right.closest('.each_role').style.display='block'
-} else {
-  each_right.closest('.each_role').style.display='none'
+  rights[i].closest('.each_role').style.display='flex'
 }
   }
 }
 
 });
+
+
+
+
+
 
 
 

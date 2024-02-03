@@ -10,7 +10,7 @@ const datas =[
     "level": "Senior",
     "postedAt": "1d ago",
     "contract": "Full Time",
-    "location": "USA Only",
+    "location": "USA only",
     "languages": ["HTML", "CSS", "JavaScript"],
     "tools": []
   },
@@ -40,7 +40,7 @@ const datas =[
     "level": "Junior",
     "postedAt": "2d ago",
     "contract": "Part Time",
-    "location": "USA Only",
+    "location": "USA only",
     "languages": ["JavaScript"],
     "tools": ["React", "Sass"]
   },
@@ -55,7 +55,7 @@ const datas =[
     "level": "Junior",
     "postedAt": "5d ago",
     "contract": "Contract",
-    "location": "USA Only",
+    "location": "USA only",
     "languages": ["CSS", "JavaScript"],
     "tools": []
   },
@@ -85,7 +85,7 @@ const datas =[
     "level": "Junior",
     "postedAt": "2w ago",
     "contract": "Full Time",
-    "location": "UK Only",
+    "location": "UK only",
     "languages": ["Ruby"],
     "tools": ["RoR"]
   },
@@ -115,7 +115,7 @@ const datas =[
     "level": "Junior",
     "postedAt": "2w ago",
     "contract": "Full Time",
-    "location": "USA Only",
+    "location": "USA only",
     "languages": ["JavaScript"],
     "tools": ["Vue", "Sass"]
   },
