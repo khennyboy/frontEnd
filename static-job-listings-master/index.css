@@ -102,11 +102,7 @@ span{
     display: flex;
     align-items: center;
 }
-.highlight{
-    background-color: hsl(180, 8%, 52%);
-    padding: 5px;
-    color: #fff;
-}
+
 .new{
     background-color: hsl(180, 8%, 52%);
     color: #fff;

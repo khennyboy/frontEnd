@@ -2,18 +2,114 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-  <title>Frontend Mentor | Job Listings</title>
-  <link rel="stylesheet" href="./static-job-listings-master/index.css">
-  <link rel="stylesheet" href="./static-job-listings-master/index2.css">
-  <link rel="stylesheet" href="https://fonts.google.com/specimen/League+Spartan">
-  <body>
-    <header>
-    <input type="text" placeholder="Search..." class="search" autofocus spellcheck="false">
-    </header>
-  <div class="wrapper"></div>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
+  <link rel="stylesheet" href="./url-shortening-api-master/index.css">
+  <link rel="stylesheet" href="https://fonts.google.com/specimen/Poppins">
+  <script defer src="./url-shortening-api-master/index.js"></script>
+</head>
+<body>
+<header>
+  <nav class="wrapper">
+    <ul class="ul_right" >
+      <li><img src="/url-shortening-api-master/images/logo.svg" alt="Logo"></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Pricing</a></li>
+      <li><a href="#">Resources</a></li>
+    </ul>
+    <ul class="ul_left">
+      <li><a href="#">Login</a></li>
+      <button class="get_started">Get Started</button>
+    </ul>
+  </nav>
+
+  <div class="header_content">
+    <section class="left">
+      <h3>More than just <br>shorter links</h3>
+      <p>Build your brand's recognition and get detailed <br> insights on how your links are performing</p>
+       <button class="get_started">Get Started</button>
+    </section>
+    <section class="right">
+      <img src="/url-shortening-api-master/images/illustration-working.svg" alt="working image" >
+    </section>
+  </div>
+</header>
+
+
+<div class="wrapper">
+  <form action="#" novalidate spellcheck="false" name="link_shorter">
+    <input type="text" required>
+    <button type="submit" class="submit">Shorten it</button>
+  </form>
+</div>
+
+<div class="shorted_links"></div>
+
+<div class="wrapper">
+  <div class="detail">
+<h3>Advanced Statistics</h3>
+  <p>Track how your link are performing across the web with our advanced statistics dashboard</p>
+  </div>
+  
+  <div class="dashbord wrapper">
+    <div class="first_dashbord">
+      <img src="/url-shortening-api-master/images/icon-brand-recognition.svg" alt="brand image">
+      <h3>Brand Recognition</h3>
+      <p>Boost your brand recognition with each click. Generic links don't mean a thing. 
+        Branded links help instil confidence in your content.
+      </p>
+    </div>
+    <div class="second_dashbord">
+      <img src="/url-shortening-api-master/images/icon-detailed-records.svg" alt="brand image">
+      <h3>Detailed Recognition</h3>
+      <p>Gain insights into who is clicking your links. Knowing when and when people engage with your content helps 
+        inform better decisions.
+      </p>
+    </div>
+    <div class="third_dashbord">
+      <img src="/url-shortening-api-master/images/icon-fully-customizable.svg" alt="brand image">
+      <h3>Fully Customizable</h3>
+      <p>Improve brand awareness and content discoverability through customizable links, superchanging audience engagement.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="boost_link wrapper">
+  <h3>Boost your link today</h3>
+  <button class="get_started">Get Started</button>
+</div>
+
+<footer class="wrapper footer">
+  <img src="/url-shortening-api-master/images/logo.svg" alt="logo">
+  <div class="first_link">
+   <a href="#" class="bold">Features</a>
+   <a href="#">Link Shortening</a>
+   <a href="#">Branded Links</a>
+   <a href="#">Analytics</a>
+  </div>
+  <div class="second_links">
+    <a href="#" class="bold">Resources</a>
+    <a href="#">Blog</a>
+    <a href="#">Developers</a>
+    <a href="#">Support</a>
+   </div>
+   <div class="third_links">
+    <a href="#" class="bold">Company</a>
+    <a href="#">About</a>
+    <a href="#">Our Team</a>
+    <a href="#">Contact</a>
+   </div>
+
+   <div class="forth_link">
+    <a href="#"><img src="/url-shortening-api-master/images/icon-facebook.svg" alt="facebook logo"></a>
+    <a href="#"><img src="/url-shortening-api-master/images/icon-twitter.svg" alt="twitter logo"></a>
+    <a href="#"><img src="/url-shortening-api-master/images/icon-pinterest.svg" alt="pinterest logo"></a>
+    <a href="#"><img src="/url-shortening-api-master/images/icon-instagram.svg" alt="instagram logo"></a>
+   </div>
+   
+</footer>
+
 </body>
-<script src="./static-job-listings-master/data.js"></script>
-<script src="./static-job-listings-master/index.js"></script>
 </html>

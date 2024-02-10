@@ -55,7 +55,7 @@ m.tools.forEach(each=>{
 let child = document.querySelectorAll('.each_role')
 
 // keyup event listener start here
-searchContainer.addEventListener('input', function(e){
+searchContainer.addEventListener('keyup', function(e){
   e.target.value = e.target.value.toLowerCase()
   let searchContainerValue;
 
@@ -71,11 +71,6 @@ searchContainer.addEventListener('input', function(e){
 }
   else{
     child.forEach(each=>each.style.display='flex')
-    // var allHighlight = document.querySelectorAll(`.language[data-language]`)
-    // allHighlight.forEach(each=>{
-    //   let m = each.dataset.language
-    //   each.innerHTML = m[0].toUpperCase()+ m.slice(1)
-    // })
   }
 // keyUp functions ends here
 })
@@ -92,21 +87,6 @@ function handleChildrenWithClasses(searchContainerValue){
 const allIndexesExist = searchContainerValue.every((item)=>{
   return (
    confirm.some((subItem)=>{
-    if(subItem.indexOf(item)!==-1){
-      var allHighlight = document.querySelector(`#each_role${i+1} .right .language[data-language=${subItem}]`)
-        var index = subItem.indexOf(item)
-        var originalText = subItem[0].toUpperCase()+subItem.slice(1) ;
-        const highlightedText = `${originalText.substring(0, index)}<span class="highlight">${originalText.substr(index, item.length)}</span>${originalText.substring(index + item.length)}`;
-        allHighlight.innerHTML = highlightedText;
-      // var highlight =  document.querySelectorAll(`.language[data-language=${subItem}]`)
-      // highlight.forEach(each=>{
-      //   var index = subItem.indexOf(item)
-      //   var originalText = subItem[0].toUpperCase()+subItem.slice(1) ;
-      //   const highlightedText = `${originalText.substring(0, index)}<span class="highlight">${originalText.substr(index, item.length)}</span>${originalText.substring(index + item.length)}`;
-      //   each.innerHTML = highlightedText;
-      // })
-    }
- 
     return (subItem.indexOf(item) !==-1)
   })
   )
@@ -114,13 +94,13 @@ const allIndexesExist = searchContainerValue.every((item)=>{
 
 if (allIndexesExist) {
   rights[i].closest('.each_role').style.display='flex'
-}
+} 
+
   }
+  //End of function
 }
 
 });
-
-
 
 
 

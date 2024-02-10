@@ -4,9 +4,25 @@
         width: 60%;
     }
     .wrapper{
-        width: 85%;
+        width: 80%;
     }
-    
+    .each_role{
+        flex-direction: column;
+        align-items: initial;
+    }
+    .each_role .left{
+        justify-content: space-evenly;
+        margin-bottom: 20px;
+    }
+    .each_role .right{
+        margin: 0 auto;
+    }
+    .new{
+        margin-right: 5px;
+    }
+    .company{
+        margin-right: 10px;
+    }
 }
 @media screen and (max-width:475px) {
     .search{
@@ -14,16 +30,13 @@
     }
     .wrapper{
         width: 100%;
+        padding: 0 1rem;
     }
     .company{
-        margin-right: 10px;
         font-size:initial;
     }
-    .new{
-        margin-right: 5px;
-    }
+   
     .each_role{
-        flex-direction: column;
         margin-bottom: 70px;
         padding: 15px;
         padding-top: 3rem;
@@ -31,7 +44,6 @@
     }
     .each_role .left{
         flex-direction: column;
-        width: 100%;
         align-items: flex-start;
         border-bottom: 1px solid hsl(180, 29%, 50%);
         margin-bottom: 15px;
@@ -56,6 +68,7 @@
     }
 }
 @media screen and (min-width: 869px) and (max-width: 1200px) {
-}
-@media screen and (min-width: 1250px) and (max-width: 1450px) {
+    .each_role{
+        flex-wrap: nowrap;
+    }
 }

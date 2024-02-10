@@ -1,0 +1,71 @@
+*,*::before, *::After{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 18px;
+    font-family: 500;
+}
+:root{
+    --Grayish_Violet: hsl(257, 7%, 63%);
+    --VeryDarkBlue: hsl(255, 11%, 22%);
+    --VeryDarkViolet:  hsl(260, 8%, 14%);
+    --Gray: hsl(0, 0%, 75%);
+    --Red: hsl(0, 87%, 67%);
+    --Cyan: hsl(180, 66%, 49%);
+    --Dark_Violet:  hsl(257, 27%, 26%);
+    --color: hsl(228, 45%, 44%);
+}
+button{
+    outline: none;
+    border: none;
+    background-color: var(--Cyan);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+button.get_started{
+    border-radius: 20px;
+}
+.wrapper{
+    padding: 0 8rem;
+}
+
+.header_content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    height: 100vh;
+    position: relative;
+    padding-left: 8rem;
+    overflow: hidden;
+}
+.header_content img{
+    width: 500px;
+    height: 400px;
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+}
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+nav > ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+nav li{
+    list-style-type: none;
+}
+nav li a {
+    text-decoration: none;
+    display: inline-block;
+}
+
