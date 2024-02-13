@@ -61,11 +61,10 @@ nav ul{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    gap: 2rem;
 }
 
-nav ul li:not(:last-child){
-    margin-right: 1.5rem;
-}
+
 nav ul li{
     list-style-type: none;
 }
