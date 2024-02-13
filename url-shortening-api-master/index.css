@@ -5,7 +5,7 @@
 }
 body{
     font-size: 18px;
-    font-family: 500;
+    font-weight: 500;
 }
 :root{
     --Grayish_Violet: hsl(257, 7%, 63%);
@@ -37,35 +37,216 @@ button.get_started{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-content: center;
+    align-items: center;
     height: 100vh;
-    position: relative;
     padding-left: 8rem;
     overflow: hidden;
 }
 .header_content img{
-    width: 500px;
+    width: 50vw;
     height: 400px;
-    position: absolute;
+    position: relative;
     right: -40px;
-    top: 50%;
-    transform: translateY(-50%);
     display: inline-block;
 }
 nav{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    top: 2rem;
+    width: 100%;
+    position: fixed;
 }
-nav > ul{
+nav ul{
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
 }
-nav li{
+
+nav ul li:not(:last-child){
+    margin-right: 1.5rem;
+}
+nav ul li{
     list-style-type: none;
 }
-nav li a {
+nav ul li a {
     text-decoration: none;
     display: inline-block;
 }
 
+.header_content .left h3{
+    color: var(--VeryDarkViolet);
+    font-size: 5rem;
+    font-weight: 700;
+    font-family: 'poppins', sans-serif;
+}
+.header_content .left p{
+    color: var(--Grayish_Violet);
+    margin-bottom: 2rem;
+}
+
+
+.section--2{
+    background-image: url('/url-shortening-api-master/images/bg-shorten-desktop.svg');
+    background-size:cover;
+    background-repeat:no-repeat;
+    border-radius: 10px;
+    padding: 2.5rem 0;
+    background-color: var(--Dark_Violet);
+}
+form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+.section--2 form input{
+    border-radius: 10px;
+    border: none;
+    padding: 15px 0;
+    padding-left: 1rem;
+    width: 60%;
+    outline: none;
+    font-size: 1.2rem;
+}
+.section--2 form input::placeholder{
+    font-size: initial;
+}
+.section--2 form button{
+    border-radius: 10px;
+    padding: 0 2rem;
+}
+#section--3{
+    background-color:  hsl(264, 15%, 94%);
+}
+.section--3{
+    padding: 6rem 0;
+}
+.detail{
+    text-align: center;
+}
+
+.detail h3{
+    color: var(--VeryDarkViolet);
+    font-weight: 700;
+    font-size: 2.5rem;
+    font-family: 'poppins',sans-serif;
+    padding-bottom: 10px;
+}
+.detail p{
+    color: var(--Grayish_Violet);
+    line-height: 2rem;
+}
+
+.dashboard{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 6rem;
+    padding-top: 4rem;
+    gap: 2rem;
+    position: relative;
+}
+.dashboard::after{
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    display: block;
+    content: '';
+    width: 60%;
+    background-color: var(--Cyan);
+    height: 8px;
+}
+
+.each_dashboard{
+    z-index: 100;
+    position: relative;
+    border-radius: 10px;
+    width: 25%;
+    background-color: #ffff;
+    padding: 0 2rem;
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+}
+.each_dashboard h3{
+    color: var(--VeryDarkViolet);
+    font-weight: 700;
+    font-size: 1.5rem;
+    font-family: 'poppins', sans-serif;
+    margin-bottom: 15px;
+}
+.each_dashboard p{
+    color: var(--Grayish_Violet);
+}
+.each_dashboard .image_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -40px;
+    position: absolute;
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    background-color: var(--VeryDarkViolet);
+}
+.second_dashboard{
+    position: relative;
+    top: 2rem;
+}
+.third_dashboard{
+    position: relative;
+    top: 4rem;
+}
+
+.boost_link{
+    background: url('/url-shortening-api-master/images/bg-shorten-desktop.svg');
+    background-size:cover;
+    background-color: var(--Dark_Violet);
+    background-repeat:no-repeat;
+    text-align: center;
+    padding: 2.8rem;
+}
+.boost_link h3{
+    color: #fff;
+    font-weight: bold;
+    font-size: 2rem;
+    font-family: 'poppins', sans-serif;
+    margin-bottom: 1.3rem;
+}
+footer{
+    background-color: rgb(26, 24, 24);
+}
+.footer_content{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4rem 0;
+    justify-content: space-between;
+    color: #fff;
+    align-items: flex-start;
+}
+.footer_content > h3{
+    font-weight: 700;
+    font-family: 'poppins', sans-serif;
+    font-size: 2.5rem;
+    margin-right: 4rem;
+}
+.footer_content div a {
+    color: #fff;
+    display: block;
+    text-decoration: none;
+    opacity: 0.5;
+    margin-bottom: 5px;
+}
+.footer_content div .bold{
+    font-weight: bold;
+    opacity: 1;
+    margin-bottom: 1rem;
+}
+.forth_link{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.footer_content .forth_link a{
+    opacity: 1;
+}
