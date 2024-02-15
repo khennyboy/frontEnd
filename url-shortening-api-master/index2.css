@@ -1,4 +1,29 @@
 @media screen and (max-width:867px) {
+    .icons{
+        display: block;
+    }
+    .nav_links{
+        display: block;
+        position: absolute;
+        top: 0;
+        /* left: 50%; */
+        width: 100vw;
+        /* transform: translateX(-50%); */
+        background-color: var(--Dark_Violet);
+        border-radius: 10px;
+    }
+
+    ul{
+        text-align: center;
+        background-color: red;
+    }
+    ul li{
+        display: block;
+    }
+    ul li a {
+        color: #fff;
+    }
+    
 }
 @media screen and (max-width:475px) {
 }
