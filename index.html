@@ -14,23 +14,23 @@
 <header>
   <nav class="wrapper">
     <img src="./url-shortening-api-master/images/logo.svg" alt="Logo">
-  <div class="nav_links">
-  <ul class="ul_right">
-      <li><a href="#">Features</a></li>
-      <li><a href="#">Pricing</a></li>
-      <li><a href="#">Resources</a></li>
-    </ul>
-    <ul class="ul_left">
-      <li><a href="#">Login</a></li>
-      <li><button class="get_started">Get Started</button></li>
-    </ul>
-  </div>
-    <div class="icons">
+    <div class="icons ">
       <div class="icon bar1"></div>
       <div class="icon bar2"></div>
       <div class="icon bar3"></div>
     </div>
-  </nav>
+  <div class="nav_links"> 
+  <ul class="first_ul">
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Pricing</a></li>
+      <li><a href="#">Resources</a></li>
+   </ul>
+  <ul class="second_ul">
+      <li><a href="#">Login</a></li>
+      <li><button class="get_started">Get Started</button></li>
+    </ul>
+  </div>
+</nav>
 
   <div class="header_content">
     <section class="left">
@@ -46,15 +46,27 @@
 
 <div class="wrapper" >
   <div class="section--2">
-  <form action="#" novalidate spellcheck="false" name="link_shorter">
-    <input type="text" required placeholder="Shorten a link here...">
+  <form spellcheck="false" name="link_shorter">
+    <div class="input_message">
+      <input type="text" placeholder="Shorten a link here...">
+      <!-- <div class="message">Please enter a valid link</div> -->
+    </div>
     <button type="submit" class="submit btn">Shorten it</button>
   </form>
 </div>
 </div>
 
+<div class="wrapper shorted_links" >
+  <div class="each_link"> 
+    <div class="input_link" id="input_link_1">hello</div>
+    <div class="shorted_link" id="shorted_link_1">dbjddjkd</div>
+    <div class="button" id="button_1">
+      <button class="copy">Copy</button>
+      <button class="delete">Delete!</button>
+    </div>
+  </div>
+</div>
 
-<div class="shorted_links"></div>
 
 <div class="wrapper" id="section--3">
 <div class="section--3" >
@@ -123,6 +135,7 @@
    </div>
   </div>
 </footer>
+
 
 </body>
 </html>
