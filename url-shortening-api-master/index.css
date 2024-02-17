@@ -130,10 +130,10 @@ ul li:not(:last-of-type){
   }
   .section--hidden {
     opacity: 0;
-    transform: translateY(8rem);
+    transform: translateY(5rem);
   }
 .section{
-    transition: transform 0.3s, opacity 0.5s;
+    transition: transform 0.7s, opacity 0.7s;
 }
 .section--2{
     background-image: url('./images/bg-shorten-desktop.svg');
@@ -144,6 +144,7 @@ ul li:not(:last-of-type){
     background-color: var(--Dark_Violet);
     position: relative;
     top: 3rem;
+    z-index: 100;
 }
 form{
     display: flex;
