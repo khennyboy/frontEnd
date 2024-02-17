@@ -136,6 +136,8 @@ ul li:not(:last-of-type){
     border-radius: 10px;
     padding: 2.5rem 0;
     background-color: var(--Dark_Violet);
+    position: relative;
+    top: 3rem;
 }
 form{
     display: flex;
