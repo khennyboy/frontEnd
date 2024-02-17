@@ -171,6 +171,7 @@
           height: 80%;
           left: 50%;
           transform: translate(-50%, -50%);
+          display: block;
     }
     .second_dashboard, .third_dashboard{
           top: 0;
