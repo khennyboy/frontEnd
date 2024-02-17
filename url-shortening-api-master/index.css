@@ -164,7 +164,7 @@ form{
     font-size: 1.2rem;
     outline-offset: 2px;
 }
-.input_message:focus{
+.input_message input:focus{
     outline: 1px solid rgb(240, 163, 20);
 }
  input::placeholder{
@@ -174,18 +174,47 @@ form{
     border-radius: 10px;
     padding: 0.8rem 1.2rem;
 }
+
+/* shorted links */
+.shorted_links{
+    margin-top: 2rem;
+}
 .each_link{
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 1.5rem 1rem ;
+    border-radius: 5px;
+    margin-bottom: 1.2rem;
 }
+.input_link{
+    width: 50%;
+}
+.shorted_link{
+    width: 35%;
+}
+.buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+.delete{
+    background-color: red;
+}
+
 #section--3{
     background-color:  hsl(264, 15%, 94%);
 }
 .section--3{
-    padding: 6rem 0;
+    padding: 1rem 0 2rem;
 }
 .detail{
     text-align: center;
+    margin-top: 4rem;
 }
 
 .detail h3{
@@ -263,7 +292,7 @@ form{
     background-color: var(--Dark_Violet);
     background-repeat:no-repeat;
     text-align: center;
-    padding: 2.8rem;
+    padding: 2.5rem;
 }
 .boost_link h3{
     color: #fff;
