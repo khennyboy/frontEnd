@@ -128,7 +128,13 @@ ul li:not(:last-of-type){
     -webkit-transform: rotate(40deg) translate(-7px, -8px);
     transform: rotate(40deg) translate(-7px, -8px);
   }
-
+  .section--hidden {
+    opacity: 0;
+    transform: translateY(8rem);
+  }
+.section{
+    transition: transform 1s, opacity 1s;
+}
 .section--2{
     background-image: url('./images/bg-shorten-desktop.svg');
     background-size:cover;
