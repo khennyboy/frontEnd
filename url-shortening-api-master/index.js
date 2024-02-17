@@ -46,7 +46,7 @@ else{
 document.addEventListener('click', function(e){
   if(nav_icon.classList.contains('change') && !document.querySelector('.nav_links').contains(e.target) && !document.querySelector('.icons').contains(e.target)){
     nav_icon.classList.remove('change')
-    nav_content.classList.remove('showNav')
+    nav_content.classList.remove('show')
     }
 })
 window.addEventListener('resize', function(){
