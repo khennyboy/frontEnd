@@ -74,14 +74,19 @@ form_shortner.addEventListener('submit', function(e){
     error_message.insertAdjacentHTML('beforeend', message)
   }
   else{
+    let x = input_tag.value.indexOf('https://')
+    if(x==-1){
+      input_tag.value = 'https://' + input_tag.value
+    }
+    console.log(input_tag.value)
     shortUrl()
-    submit_btn.innerHTML = 'Please wait...'
   }
 })
 
 const shortUrl = async function(){
   const formData = new FormData()
-  formData.append('link', encodeURIComponent(input_tag.value))
+ 
+  formData.append('link', input_tag.value)
     const settings = {
       header: {
           'Accept': 'application/json'
@@ -90,6 +95,7 @@ const shortUrl = async function(){
       body: formData
     }
   try{
+    submit_btn.innerHTML = 'Please wait...'
   const get = await fetch('https://riganapi.pythonanywhere.com/api/v1/url/shorten/', settings)
   const response = await get.json()
   // console.log(response)
@@ -103,7 +109,6 @@ const shortUrl = async function(){
     parent.innerHTML=''
     name()
     // console.log(store)
-  
   }
   else{
     var all_data = new Map();
@@ -118,6 +123,7 @@ const shortUrl = async function(){
 
   catch(error){
     console.log(error)
+    submit_btn.innerHTML = 'Shorten it...'
    if(error.message=='Failed to fetch'){
     message =  `<div class="message">***Please check your internet connection, ${error.message}</div>`
    }
@@ -137,7 +143,6 @@ const shortUrl = async function(){
 
 // localStorage.clear()
 
-// Example using event delegation for delete_btn
 document.addEventListener('click', function (event) {
   if (event.target.classList.contains('delete')) {
     let input = event.target.closest('.each_link').childNodes[1].value;
@@ -152,7 +157,7 @@ document.addEventListener('click', function (event) {
   }
 });
 
-// Example using event delegation for copy_btn
+
 document.addEventListener('click', function (event) {
   if (event.target.classList.contains('copy')) {
     var value = event.target.closest('.each_link').childNodes[3].id;
@@ -167,7 +172,6 @@ document.addEventListener('click', function (event) {
 });
 
 function name(){
-if(localStorage.links){
   var store = JSON.parse(localStorage.links)
   store.forEach((each, index)=>{
   let x = `<div class="each_link"> 
@@ -180,13 +184,9 @@ if(localStorage.links){
 </div>`
 parent.insertAdjacentHTML('afterbegin', x)
 })
-}   
 }
 name()
  
-
-
-
 // scroll into view funvtion
 get_started.forEach((each)=>{
   each.addEventListener('click', function(){

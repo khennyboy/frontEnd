@@ -169,7 +169,7 @@
           transform: translateX(-50%);
      }
      .dashboard::after{
-          width: 5px;
+          width: 8px;
           height: 80%;
           left: 50%;
           transform: translate(-50%, -50%);
@@ -227,6 +227,13 @@
       .shorted_link{
           width: 100%;
           font-size: 1rem;
+      }
+      .each_dashboard h3{
+          font-size: 1.6rem;
+          font-weight: bold;
+      }
+      .each_dashboard{
+          text-align: center;
       }
     
    
