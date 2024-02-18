@@ -148,9 +148,7 @@ document.addEventListener('click', function (event) {
     let input = event.target.closest('.each_link').childNodes[1].value;
     console.log(input)
     var all_data = new Map(JSON.parse(localStorage.links));
-    console.log(all_data)
     all_data.delete(input);
-    console.log(all_data)
     all_data = [...all_data];
     localStorage.links = JSON.stringify(all_data);
     event.target.closest('.each_link').remove();
