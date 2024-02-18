@@ -63,7 +63,7 @@ let input_tag = document.querySelector('.input_tag')
 let error_message = document.querySelector('.input_message')
 let submit_btn = document.querySelector('.submit')
 let message
-var store;
+
 form_shortner.addEventListener('submit', function(e){
   e.preventDefault()
   if(input_tag.value.trim()==''){
@@ -92,43 +92,26 @@ const shortUrl = async function(){
   try{
   const get = await fetch('https://riganapi.pythonanywhere.com/api/v1/url/shorten/', settings)
   const response = await get.json()
-  // console.log(response)
+  console.log(response)
   submit_btn.innerHTML = 'Shorten it...'
 
   if(localStorage.links){
     let updated_store = new Map(JSON.parse(localStorage.links))
     updated_store.set(`${input_tag.value}`, `${response.data}`)
-    store = [...updated_store]
+    let store = [...updated_store]
     localStorage.links = JSON.stringify(store)
     parent.innerHTML=''
     name()
-    location.reload()
-    form_body.scrollIntoView({
-      behavior: "smooth"
-    })
+    // console.log(store)
+  
   }
   else{
     var all_data = new Map();
   all_data
       .set(`${input_tag.value}`, `${response.data}`)
-  store = [...all_data]
-  store.forEach((each, index)=>{
-    let x = `<div class="each_link"> 
-    <input class="input_link" id='input_link_${index+1}' value= ${each[0]} readonly/>
-    <input class="shorted_link" id='shorted_link_${index+1}' value=${each[1]} readonly/>
-    <div class="buttons" id="button${index+1}">
-      <button class="copy">Copy</button>
-      <button class="delete">Delete!</button>
-    </div>
-  </div>`
-  parent.insertAdjacentHTML('afterbegin', x)
-  })
+  let store = [...all_data]
   localStorage.links = JSON.stringify(store)
-  location.reload()
-    form_body.scrollIntoView({
-      behavior: "smooth"
-    })
-
+  name()
   }
 
   }
@@ -146,8 +129,12 @@ const shortUrl = async function(){
     }
     error_message.insertAdjacentHTML('beforeend', message)
   }
+  finally{
+    input_tag.value=''
+  }
 }
 
+// localStorage.clear()
 
 function name(){
 if(localStorage.links){
@@ -167,35 +154,33 @@ parent.insertAdjacentHTML('afterbegin', x)
 }
 name()
  
-let delete_btn = document.querySelectorAll('.delete')
-let copy_btn = document.querySelectorAll('.copy')
 
-//deleting function
-delete_btn.forEach(each=>{
-  each.onclick = function(){
-   let value = each.closest('.each_link').childNodes[1].value;
-   var all_data = new Map(JSON.parse(localStorage.links))
-   all_data.delete(value)
-   all_data = [...all_data]
-   localStorage.links = JSON.stringify(all_data)
-    each.closest('.each_link').remove()
+// Example using event delegation for delete_btn
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('delete')) {
+    let value = event.target.closest('.each_link').childNodes[1].value;
+    var all_data = new Map(JSON.parse(localStorage.links));
+    all_data.delete(value);
+    all_data = [...all_data];
+    localStorage.links = JSON.stringify(all_data);
+    event.target.closest('.each_link').remove();
   }
-})
+});
 
-
-//copy function
-copy_btn.forEach(each=>{
-  each.onclick = function(){
-   var value = each.closest('.each_link').childNodes[3].id;
-   var value = document.querySelector(`#${value}`)
-   value.select();
-   document.execCommand('copy')
-   each.innerHTML = 'Copied!'
-   setTimeout(()=>{
-    each.innerHTML= 'Copy'
-   }, 1000)
+// Example using event delegation for copy_btn
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('copy')) {
+    var value = event.target.closest('.each_link').childNodes[3].id;
+    var valueElement = document.querySelector(`#${value}`);
+    valueElement.select();
+    document.execCommand('copy');
+    event.target.innerHTML = 'Copied!';
+    setTimeout(() => {
+      event.target.innerHTML = 'Copy';
+    }, 1000);
   }
-})
+});
+
 
 // scroll into view funvtion
 get_started.forEach((each)=>{
@@ -205,8 +190,6 @@ get_started.forEach((each)=>{
     })
   })
 })
-
-
 
 })
 
