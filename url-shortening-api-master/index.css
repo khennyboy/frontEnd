@@ -27,6 +27,10 @@ button{
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
+input{
+    outline: none;
+    border: none;
+}
 
 .btn:hover{
     background-color: hsl(180, 71%, 56%);
@@ -114,24 +118,24 @@ ul li:not(:last-of-type){
     height: 3px;
     transition: 0.3s ease-in-out;
   }
-  .icon:not(:last-of-type){
-    margin-bottom: 6px;
+.icon:not(:last-of-type){
+margin-bottom: 6px;
 }
-  .change .bar1{
-    -webkit-transform: rotate(-45deg) translate(-8px, 4px);
-    transform: rotate(-45deg) translate(-8px, 4px);
-  }
-  .change .bar2{
-    opacity: 0;
-  }
-  .change .bar3{
-    -webkit-transform: rotate(40deg) translate(-7px, -8px);
-    transform: rotate(40deg) translate(-7px, -8px);
-  }
-  .section--hidden {
-    opacity: 0;
-    transform: translateY(5rem);
-  }
+.change .bar1{
+-webkit-transform: rotate(-45deg) translate(-8px, 4px);
+transform: rotate(-45deg) translate(-8px, 4px);
+}
+.change .bar2{
+opacity: 0;
+}
+.change .bar3{
+-webkit-transform: rotate(40deg) translate(-7px, -8px);
+transform: rotate(40deg) translate(-7px, -8px);
+}
+/* .section--hidden {
+opacity: 0;
+transform: translateY(5rem);
+} */
 .section{
     transition: transform 0.7s, opacity 0.7s;
 }
@@ -143,9 +147,10 @@ ul li:not(:last-of-type){
     padding: 2.5rem 0;
     background-color: var(--Dark_Violet);
     position: relative;
-    top: 3rem;
+    top: 4rem;
     z-index: 100;
 }
+
 form{
     display: flex;
     flex-wrap: wrap;
@@ -166,11 +171,9 @@ form{
 }
 .input_message input{
     border-radius: 5px;
-    border: none;
     padding: 0.6rem 0 0.6rem 1rem;
     width: 100%;
-    outline: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     outline-offset: 2px;
 }
 .input_message input:focus{
@@ -186,7 +189,7 @@ form{
 
 /* shorted links */
 .shorted_links{
-    margin-top: 2rem;
+    margin-top: 5rem;
 }
 .each_link{
     display: flex;
@@ -200,9 +203,18 @@ form{
 }
 .input_link{
     width: 50%;
+    overflow: auto;
+    font-size: 1.1rem;
+    padding: 10px 0;
+}
+.input_link::-webkit-scrollbar, .shorted_link::-webkit-scrollbar{
+    display: none;
 }
 .shorted_link{
-    width: 35%;
+    width: 40%;
+    overflow: auto;
+    font-size: 1.1rem;
+    padding: 10px 0;
 }
 .buttons{
     width: 100%;
@@ -213,6 +225,7 @@ form{
 
 .delete{
     background-color: red;
+    text-decoration: line-through;
 }
 
 #section--3{
@@ -349,4 +362,7 @@ footer{
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+}
+.shorted_link::selection{
+    background-color: inherit;
 }
