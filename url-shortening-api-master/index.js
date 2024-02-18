@@ -92,7 +92,7 @@ const shortUrl = async function(){
   try{
   const get = await fetch('https://riganapi.pythonanywhere.com/api/v1/url/shorten/', settings)
   const response = await get.json()
-  console.log(response)
+  // console.log(response)
   submit_btn.innerHTML = 'Shorten it...'
 
   if(localStorage.links){
@@ -130,11 +130,41 @@ const shortUrl = async function(){
     error_message.insertAdjacentHTML('beforeend', message)
   }
   finally{
-    input_tag.value=''
+    input_tag.value =''
   }
+ 
 }
 
 // localStorage.clear()
+
+// Example using event delegation for delete_btn
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('delete')) {
+    let input = event.target.closest('.each_link').childNodes[1].value;
+    console.log(input)
+    var all_data = new Map(JSON.parse(localStorage.links));
+    console.log(all_data)
+    all_data.delete(input);
+    console.log(all_data)
+    all_data = [...all_data];
+    localStorage.links = JSON.stringify(all_data);
+    event.target.closest('.each_link').remove();
+  }
+});
+
+// Example using event delegation for copy_btn
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('copy')) {
+    var value = event.target.closest('.each_link').childNodes[3].id;
+    var valueElement = document.querySelector(`#${value}`);
+    valueElement.select();
+    document.execCommand('copy');
+    event.target.innerHTML = 'Copied!';
+    setTimeout(() => {
+      event.target.innerHTML = 'Copy';
+    }, 1000);
+  }
+});
 
 function name(){
 if(localStorage.links){
@@ -155,31 +185,6 @@ parent.insertAdjacentHTML('afterbegin', x)
 name()
  
 
-// Example using event delegation for delete_btn
-document.addEventListener('click', function (event) {
-  if (event.target.classList.contains('delete')) {
-    let value = event.target.closest('.each_link').childNodes[1].value;
-    var all_data = new Map(JSON.parse(localStorage.links));
-    all_data.delete(value);
-    all_data = [...all_data];
-    localStorage.links = JSON.stringify(all_data);
-    event.target.closest('.each_link').remove();
-  }
-});
-
-// Example using event delegation for copy_btn
-document.addEventListener('click', function (event) {
-  if (event.target.classList.contains('copy')) {
-    var value = event.target.closest('.each_link').childNodes[3].id;
-    var valueElement = document.querySelector(`#${value}`);
-    valueElement.select();
-    document.execCommand('copy');
-    event.target.innerHTML = 'Copied!';
-    setTimeout(() => {
-      event.target.innerHTML = 'Copy';
-    }, 1000);
-  }
-});
 
 
 // scroll into view funvtion
