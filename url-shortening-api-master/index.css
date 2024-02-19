@@ -91,10 +91,10 @@ ul li:not(:last-of-type){
     overflow: hidden;
 }
 .header_content img{
-    width: 50vw;
-    height: 60vh;
+    aspect-ratio: 5/3;
+    object-fit: contain;
     position: relative;
-    right: -40px;
+    right: -200px;
     display: inline-block;
 }
 
