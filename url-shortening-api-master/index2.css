@@ -118,7 +118,8 @@
     }
     .header_content img{
       position: initial;
-
+      width: 70vw;
+      object-fit: fill;
     }
 
 }
@@ -130,7 +131,8 @@
           padding: 2.7rem 1rem 0;
      }
      .header_content img{
-        aspect-ratio: 5/2;
+        width: 80vw;
+        object-fit: fill;
      }
      .header_content .left h3{
           font-size: 2.5rem;
@@ -270,9 +272,9 @@
      ul li:not(:last-of-type){
           margin-right: 2rem;
       }
-      /* .header_content img{
-          height: 50vh;
-      } */
+      .header_content img{
+          right: -50px;
+      }
       .header_content .left h3{
           font-size: 3.4rem;
       }
