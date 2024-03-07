@@ -105,10 +105,13 @@ ul li:not(:last-of-type){
     font-weight: 700;
     font-family: 'poppins', sans-serif;
 }
-/* #cursor{
+#cursor{
     border-right-width: 1px;
     border-right-style: solid;
-} */
+    border-right-color: black;
+    height: 3rem;
+    display: inline-block;
+}
 .header_content .left p{
     color: var(--Grayish_Violet);
     margin-bottom: 2rem;
