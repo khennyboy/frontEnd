@@ -9,6 +9,7 @@ parent = document.querySelector('.shorted_links')
 const allSections = document.querySelectorAll('.section')
 let animate = document.querySelector('.animate')
 const sentencesSplit = [
+  ['More than just', 'shorter links'],
   ["Shorten your links and", "share them easily."],
   ["Make your URLs concise and", "user-friendly."],
   ["Link shortening made", "simple and effective."],
@@ -17,7 +18,7 @@ const sentencesSplit = [
   ["Simplify your links for a", "cleaner online experience."],
   ["Optimize your social media", "sharing with shortened URLs."],
   ["Create short links for a", "more professional appearance."],
-  ["Track and analyze the", "performance of your shortened links."],
+  ["Track and analyze the performance ", "of your shortened links."],
   ["Empower your marketing efforts", "with our link shortening service."],
   ["Improve click-through rates with", "shortened, memorable links."],
   ["Customize and personalize your", "short URLs for branding."],
@@ -25,11 +26,14 @@ const sentencesSplit = [
   ["Boost engagement by sharing", "concise links with your audience."]
 ];
 
-let  wordsAndBreaks = animate.childNodes[0].nodeValue.trim();
-let wordsAndBreaks2 = animate.childNodes[2].nodeValue.trim()
-animate.innerHTML = ''; 
+let all_sentence = sentencesSplit.length
+let each_sentence = 0
+let write, write2;
+let createdElement;
 let cursorVisible = true;
-let createdElement
+
+
+
 function cursor(){
   createdElement = document.createElement('span')
   createdElement.id = 'cursor'
@@ -37,31 +41,46 @@ function cursor(){
   animate.insertAdjacentElement('beforeend', createdElement)
   cursorVisible = !cursorVisible;
 }
- let len = wordsAndBreaks.length
- let start =0
-function opac() {
+cursor()
+
+function each_words(){
+  write = setInterval(()=>opac(each_sentence), 300)
+}
+
+each_words()
+
+let  wordsAndBreaks ;
+let wordsAndBreaks2 ;
+
+let len ;
+let start =0;
+
+function opac(position) {
+  wordsAndBreaks = sentencesSplit[position][0];
+  len = wordsAndBreaks.length;
   if(start<len ){
-    animate.removeChild(createdElement)
+    let child = animate.querySelector("#cursor")
+    child &&  animate.removeChild(child)
     animate.innerHTML += wordsAndBreaks[start]
     cursor()
     setTimeout(()=>{
       createdElement.style.borderRightColor =  'transparent' ; 
-    }, 150)
+    }, 100)
     start +=1
   }
   if(start == wordsAndBreaks.length){
     let x  = document.createElement('br')
     animate.insertAdjacentElement('beforeend', x)
-    console.log(animate)
     animate.innerHTML += ' '
     clearInterval(write)
-    start = 0
-    len = wordsAndBreaks2.length
-    write2 = setInterval(opac2, 300)
+    start = 0;
+    write2 = setInterval(()=>opac2(position), 200)
   }
 }
 
-function opac2(){
+function opac2(position){
+  wordsAndBreaks2 = sentencesSplit[position][1];
+  len = wordsAndBreaks2.length
   if(start<len ){
     let child = animate.querySelector("#cursor")
     child &&  animate.removeChild(child)
@@ -69,18 +88,36 @@ function opac2(){
     cursor()
     setTimeout(()=>{
       createdElement.style.borderRightColor =  'transparent' ; 
-    }, 150)
+    }, 100)
     start +=1
   }
   if(start == wordsAndBreaks2.length){
     animate.removeChild(createdElement)
-    console.log(animate)
     clearInterval(write2)
+    start = 0
+    each_sentence +=1;
+
+  if(each_sentence<all_sentence){
+    cursor()
+    setTimeout(()=>{
+      animate.innerHTML=''
+      each_words()
+    }, 500)
   }
+  if(each_sentence >=all_sentence){
+    cursor()
+    each_sentence =0;
+    setTimeout(()=>{
+      each_words()
+    }, 500)
+    
+  }
+
+  }
+  
 }
 
-write = setInterval(opac, 300)
-cursor()
+
 
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape' && nav_icon.classList.contains('change')) {
