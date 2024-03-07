@@ -101,10 +101,14 @@ ul li:not(:last-of-type){
 
 .header_content .left h3{
     color: var(--VeryDarkViolet);
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: 700;
     font-family: 'poppins', sans-serif;
 }
+/* #cursor{
+    border-right-width: 1px;
+    border-right-style: solid;
+} */
 .header_content .left p{
     color: var(--Grayish_Violet);
     margin-bottom: 2rem;

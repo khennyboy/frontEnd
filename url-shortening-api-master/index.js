@@ -7,7 +7,63 @@ nav_icon = document.querySelector('.icons'),
 parent = document.querySelector('.shorted_links')
 
 const allSections = document.querySelectorAll('.section')
+let animate = document.querySelector('.animate')
+let  wordsAndBreaks = animate.childNodes[0].nodeValue.trim();
+let wordsAndBreaks2 = animate.childNodes[2].nodeValue.trim()
+animate.innerHTML = ''; 
+let cursorVisible = true;
+let createdElement
+function cursor(){
+  createdElement = document.createElement('span')
+  createdElement.id = 'cursor'
+  createdElement.style.borderRightColor = '#ff000'; 
+  animate.insertAdjacentElement('beforeend', createdElement)
+  cursorVisible = !cursorVisible;
+}
+ let len = wordsAndBreaks.length
+ let start =0
+function opac() {
+  if(start<len ){
+    animate.removeChild(createdElement)
+    animate.innerHTML += wordsAndBreaks[start]
+    cursor()
+    setTimeout(()=>{
+      createdElement.style.borderRightColor =  'transparent' ; 
+    }, 200)
+    start +=1
+  }
+  if(start == wordsAndBreaks.length){
+    let x  = document.createElement('br')
+    animate.insertAdjacentElement('beforeend', x)
+    console.log(animate)
+    animate.innerHTML += ' '
+    clearInterval(write)
+    start = 0
+    len = wordsAndBreaks2.length
+    write2 = setInterval(opac2, 400)
+  }
+}
 
+function opac2(){
+  if(start<len ){
+    let child = animate.querySelector("#cursor")
+    child &&  animate.removeChild(child)
+    animate.innerHTML += wordsAndBreaks2[start]
+    cursor()
+    setTimeout(()=>{
+      createdElement.style.borderRightColor =  'transparent' ; 
+    }, 200)
+    start +=1
+  }
+  if(start == wordsAndBreaks2.length){
+    animate.removeChild(createdElement)
+    console.log(animate)
+    clearInterval(write2)
+  }
+}
+
+write = setInterval(opac, 400)
+cursor()
 
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape' && nav_icon.classList.contains('change')) {
@@ -102,7 +158,7 @@ const shortUrl = async function(){
   submit_btn.innerHTML = 'Shorten it...'
 
   if(localStorage.links){
-    let updated_store = new Map(JSON.parse(localStorage.links))
+    let updated_store = new Map(JSON.parse(localStorage.links)) // local storage stores the array 
     updated_store.set(`${input_tag.value}`, `${response.data}`)
     let store = [...updated_store]
     localStorage.links = JSON.stringify(store)
@@ -170,7 +226,8 @@ document.addEventListener('click', function (event) {
 });
 
 function name(){
-  var store = JSON.parse(localStorage.links)
+  if(localStorage.links){
+   var store = JSON.parse(localStorage.links)
   store.forEach((each, index)=>{
   let x = `<div class="each_link"> 
   <input class="input_link" id='input_link_${index+1}' value= ${each[0]} readonly/>
@@ -181,7 +238,8 @@ function name(){
   </div>
 </div>`
 parent.insertAdjacentHTML('afterbegin', x)
-})
+}) 
+  }
 }
 name()
  
@@ -195,6 +253,4 @@ get_started.forEach((each)=>{
 })
 
 })
-
-
 
