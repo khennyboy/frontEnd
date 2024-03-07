@@ -8,6 +8,23 @@ parent = document.querySelector('.shorted_links')
 
 const allSections = document.querySelectorAll('.section')
 let animate = document.querySelector('.animate')
+const sentencesSplit = [
+  ["Shorten your links and", "share them easily."],
+  ["Make your URLs concise and", "user-friendly."],
+  ["Link shortening made", "simple and effective."],
+  ["Share long URLs with", "ease using our link shortener."],
+  ["Enhance your online presence", "with shortened links."],
+  ["Simplify your links for a", "cleaner online experience."],
+  ["Optimize your social media", "sharing with shortened URLs."],
+  ["Create short links for a", "more professional appearance."],
+  ["Track and analyze the", "performance of your shortened links."],
+  ["Empower your marketing efforts", "with our link shortening service."],
+  ["Improve click-through rates with", "shortened, memorable links."],
+  ["Customize and personalize your", "short URLs for branding."],
+  ["Effortlessly manage and organize", "your shortened links."],
+  ["Boost engagement by sharing", "concise links with your audience."]
+];
+
 let  wordsAndBreaks = animate.childNodes[0].nodeValue.trim();
 let wordsAndBreaks2 = animate.childNodes[2].nodeValue.trim()
 animate.innerHTML = ''; 
@@ -29,7 +46,7 @@ function opac() {
     cursor()
     setTimeout(()=>{
       createdElement.style.borderRightColor =  'transparent' ; 
-    }, 200)
+    }, 150)
     start +=1
   }
   if(start == wordsAndBreaks.length){
@@ -40,7 +57,7 @@ function opac() {
     clearInterval(write)
     start = 0
     len = wordsAndBreaks2.length
-    write2 = setInterval(opac2, 400)
+    write2 = setInterval(opac2, 300)
   }
 }
 
@@ -52,7 +69,7 @@ function opac2(){
     cursor()
     setTimeout(()=>{
       createdElement.style.borderRightColor =  'transparent' ; 
-    }, 200)
+    }, 150)
     start +=1
   }
   if(start == wordsAndBreaks2.length){
@@ -62,7 +79,7 @@ function opac2(){
   }
 }
 
-write = setInterval(opac, 400)
+write = setInterval(opac, 300)
 cursor()
 
 document.addEventListener('keydown', function (e) {
