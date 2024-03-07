@@ -241,7 +241,9 @@
       .each_dashboard{
           text-align: center;
       }
-    
+      #cursor{
+          height: 2rem;
+      }
    
 }
 @media screen and (min-width: 0px) and (max-width: 300px){

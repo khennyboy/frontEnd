@@ -104,6 +104,9 @@ ul li:not(:last-of-type){
     font-size: 4rem;
     font-weight: 700;
     font-family: 'poppins', sans-serif;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
 }
 #cursor{
     border-right-width: 1px;
