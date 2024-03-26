@@ -93,6 +93,7 @@ ul li:not(:last-of-type){
 .header_content img{
     width:50vw;
     object-fit: contain;
+    aspect-ratio: 4/2;
     position: relative;
     right: -100px;
     display: inline-block;
