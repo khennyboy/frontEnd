@@ -7,6 +7,7 @@ body{
     font-size: 18px;
     font-weight: 500;
 }
+
 :root{
     --Grayish_Violet: hsl(257, 7%, 63%);
     --VeryDarkBlue: hsl(255, 11%, 22%);
@@ -375,3 +376,4 @@ footer{
 .shorted_link::selection{
     background-color: inherit;
 }
+

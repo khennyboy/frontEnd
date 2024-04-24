@@ -188,14 +188,12 @@ form_shortner.addEventListener('submit', function(e){
     if(x==-1){
       input_tag.value = 'https://' + input_tag.value
     }
-    console.log(input_tag.value)
     shortUrl()
   }
 })
 
 const shortUrl = async function(){
   const formData = new FormData()
- 
   formData.append('link', input_tag.value)
     const settings = {
       header: {
@@ -206,9 +204,8 @@ const shortUrl = async function(){
     }
   try{
     submit_btn.innerHTML = 'Please wait...'
-  const get = await fetch('https://riganapi.pythonanywhere.com/api/v1/url/shorten/', settings)
+  const get = await fetch('https://riganapi.pythonanywhere.com/api/v1/url/shoten/', settings)
   const response = await get.json()
-  // console.log(response)
   submit_btn.innerHTML = 'Shorten it...'
 
   if(localStorage.links){
